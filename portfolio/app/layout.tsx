@@ -18,7 +18,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <div className="border-b border-[#333333]"></div>
           <main className="flex-grow">{children}</main>
           <footer className="py-4 text-center text-[#333333]">
-            <p className="text-sm">© 2024 My Travel Planning Website. All rights reserved.</p>
+            <p className="text-sm">Last update 24.09.05</p>
           </footer>
         </ClientProvider>
       </body>

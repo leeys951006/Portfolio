@@ -34,16 +34,36 @@ export default function Header() {
 
         {/* 기본 메뉴 (데스크탑용) */}
         <nav className="hidden sm:flex space-x-8 ml-auto">
-          <Link href="/" className={`font-semibold ${isBrightMode ? 'text-[#F7B033]' : 'text-[#333333]'} hover:underline`}>
+          <Link
+            href="/"
+            className={`font-semibold ${isBrightMode ? 'text-[#F7B033]' : 'text-[#333333]'} hover:underline ${
+              isBrightMode ? 'hover:text-[#FFD700]' : 'hover:text-[#666666]'
+            } transition-colors duration-200`}
+          >
             홈
           </Link>
-          <Link href="/about" className={`font-semibold ${isBrightMode ? 'text-[#F7B033]' : 'text-[#333333]'} hover:underline`}>
+          <Link
+            href="/about"
+            className={`font-semibold ${isBrightMode ? 'text-[#F7B033]' : 'text-[#333333]'} hover:underline ${
+              isBrightMode ? 'hover:text-[#FFD700]' : 'hover:text-[#666666]'
+            } transition-colors duration-200`}
+          >
             소개
           </Link>
-          <Link href="/team-projects" className={`font-semibold ${isBrightMode ? 'text-[#F7B033]' : 'text-[#333333]'} hover:underline`}>
+          <Link
+            href="/team-projects"
+            className={`font-semibold ${isBrightMode ? 'text-[#F7B033]' : 'text-[#333333]'} hover:underline ${
+              isBrightMode ? 'hover:text-[#FFD700]' : 'hover:text-[#666666]'
+            } transition-colors duration-200`}
+          >
             팀프로젝트
           </Link>
-          <Link href="/personal-projects" className={`font-semibold ${isBrightMode ? 'text-[#F7B033]' : 'text-[#333333]'} hover:underline`}>
+          <Link
+            href="/personal-projects"
+            className={`font-semibold ${isBrightMode ? 'text-[#F7B033]' : 'text-[#333333]'} hover:underline ${
+              isBrightMode ? 'hover:text-[#FFD700]' : 'hover:text-[#666666]'
+            } transition-colors duration-200`}
+          >
             개인프로젝트
           </Link>
         </nav>
@@ -59,19 +79,31 @@ export default function Header() {
           </button>
 
           <nav className="mt-16 space-y-4">
-            <Link href="/" onClick={toggleMenu} className={`block px-4 py-2 font-semibold hover:text-gray-500 ${isBrightMode ? 'text-[#F7B033]' : 'text-[#333333]'}`}>
+            <Link
+              href="/"
+              onClick={toggleMenu}
+              className={`block px-4 py-2 font-semibold hover:text-gray-500 transition-colors duration-200 ${isBrightMode ? 'text-[#F7B033]' : 'text-[#333333]'}`}
+            >
               홈
             </Link>
-            <Link href="/about" onClick={toggleMenu} className={`block px-4 py-2 font-semibold hover:text-gray-500 ${isBrightMode ? 'text-[#F7B033]' : 'text-[#333333]'}`}>
+            <Link
+              href="/about"
+              onClick={toggleMenu}
+              className={`block px-4 py-2 font-semibold hover:text-gray-500 transition-colors duration-200 ${isBrightMode ? 'text-[#F7B033]' : 'text-[#333333]'}`}
+            >
               소개
             </Link>
-            <Link href="/team-projects" onClick={toggleMenu} className={`block px-4 py-2 font-semibold hover:text-gray-500 ${isBrightMode ? 'text-[#F7B033]' : 'text-[#333333]'}`}>
+            <Link
+              href="/team-projects"
+              onClick={toggleMenu}
+              className={`block px-4 py-2 font-semibold hover:text-gray-500 transition-colors duration-200 ${isBrightMode ? 'text-[#F7B033]' : 'text-[#333333]'}`}
+            >
               팀프로젝트
             </Link>
             <Link
               href="/personal-projects"
               onClick={toggleMenu}
-              className={`block px-4 py-2 font-semibold hover:text-gray-500 ${isBrightMode ? 'text-[#F7B033]' : 'text-[#333333]'}`}
+              className={`block px-4 py-2 font-semibold hover:text-gray-500 transition-colors duration-200 ${isBrightMode ? 'text-[#F7B033]' : 'text-[#333333]'}`}
             >
               개인프로젝트
             </Link>
