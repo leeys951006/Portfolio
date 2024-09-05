@@ -19,7 +19,7 @@ export default function Header() {
         {/* 로고 중앙 배치 */}
         <div className="absolute left-1/2 transform -translate-x-1/2">
           <Link href="/">
-            <Image src="/logo.png" alt="Logo" width={150} height={50} className="cursor-pointer" />
+            <Image src={isBrightMode ? '/logo2.png' : '/logo.png'} alt="Logo" width={150} height={50} className="cursor-pointer" />
           </Link>
         </div>
 
@@ -55,20 +55,24 @@ export default function Header() {
           } transition-transform duration-300 ease-in-out sm:hidden z-20`}
         >
           <button onClick={toggleMenu} className="absolute bottom-4 left-4 focus:outline-none">
-            <Image src="/button.png" alt="Close Menu" width={40} height={40} className="cursor-pointer" />
+            <Image src={isBrightMode ? '/button2.png' : '/button.png'} alt="Close Menu" width={40} height={40} className="cursor-pointer" />
           </button>
 
           <nav className="mt-16 space-y-4">
-            <Link href="/" onClick={toggleMenu} className="block px-4 py-2 text-[#333333] font-semibold hover:text-gray-500">
+            <Link href="/" onClick={toggleMenu} className={`block px-4 py-2 font-semibold hover:text-gray-500 ${isBrightMode ? 'text-[#F7B033]' : 'text-[#333333]'}`}>
               홈
             </Link>
-            <Link href="/about" onClick={toggleMenu} className="block px-4 py-2 text-[#333333] font-semibold hover:text-gray-500">
+            <Link href="/about" onClick={toggleMenu} className={`block px-4 py-2 font-semibold hover:text-gray-500 ${isBrightMode ? 'text-[#F7B033]' : 'text-[#333333]'}`}>
               소개
             </Link>
-            <Link href="/team-projects" onClick={toggleMenu} className="block px-4 py-2 text-[#333333] font-semibold hover:text-gray-500">
+            <Link href="/team-projects" onClick={toggleMenu} className={`block px-4 py-2 font-semibold hover:text-gray-500 ${isBrightMode ? 'text-[#F7B033]' : 'text-[#333333]'}`}>
               팀프로젝트
             </Link>
-            <Link href="/personal-projects" onClick={toggleMenu} className="block px-4 py-2 text-[#333333] font-semibold hover:text-gray-500">
+            <Link
+              href="/personal-projects"
+              onClick={toggleMenu}
+              className={`block px-4 py-2 font-semibold hover:text-gray-500 ${isBrightMode ? 'text-[#F7B033]' : 'text-[#333333]'}`}
+            >
               개인프로젝트
             </Link>
           </nav>

@@ -54,7 +54,7 @@ export default function HomePage() {
       </div>
 
       <div className={`w-full h-[300px] flex items-center justify-center mt-12 ${isBrightMode ? 'bg-[#F7B033]' : 'bg-[#333333]'}`}>
-        <p className={`text-2xl ${isBrightMode ? 'text-white' : 'text-[#F7B033]'}`}>새로운 하단 섹션</p>
+        <p className={`text-2xl ${isBrightMode ? 'text-white' : 'text-white'}`}>새로운 하단 섹션</p>
       </div>
     </div>
   );
