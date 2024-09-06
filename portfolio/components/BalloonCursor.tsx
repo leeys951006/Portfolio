@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 
-export default function BalloonCursor() {
+interface BalloonCursorProps {
+  excludePages?: string[];
+}
+
+export default function BalloonCursor({ excludePages = [] }: BalloonCursorProps) {
   const [balloonText, setBalloonText] = useState('이 페이지는 pc,모바일로 제작되었습니다');
   const [balloonStyle, setBalloonStyle] = useState({
     backgroundColor: '#333333',
@@ -9,7 +13,6 @@ export default function BalloonCursor() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // 화면 크기에 따라 모바일 여부 설정
     const checkIsMobile = () => {
       setIsMobile(window.innerWidth <= 768);
     };
@@ -21,15 +24,13 @@ export default function BalloonCursor() {
 
     const moveBalloon = (e: MouseEvent) => {
       if (!isMobile && balloon) {
-        // 모바일이 아닐 때만 말풍선 이동
-        (balloon as HTMLElement).style.left = `${e.clientX + 30}px`; // 오른쪽으로 30px 이동
-        (balloon as HTMLElement).style.top = `${e.clientY + 10}px`; // 아래로 10px 이동
+        (balloon as HTMLElement).style.left = `${e.clientX + 30}px`;
+        (balloon as HTMLElement).style.top = `${e.clientY + 10}px`;
       }
     };
 
     window.addEventListener('mousemove', moveBalloon);
 
-    // 이미지에 마우스가 올려졌을 때 말풍선 텍스트 및 스타일 변경
     const images = document.querySelectorAll('img');
     images.forEach((image) => {
       image.addEventListener('mouseover', () => {
@@ -38,15 +39,17 @@ export default function BalloonCursor() {
           (image as HTMLImageElement).src.includes('notion.png') ||
           (image as HTMLImageElement).src.includes('pdf.png')
         ) {
-          setBalloonText('클릭시 해당사이트로 이동합니다');
-          setBalloonStyle({
-            backgroundColor: '#F7B033',
-            color: '#ffffff',
-          });
+          if (!excludePages.includes('about')) {
+            setBalloonText('클릭시 해당사이트로 이동합니다');
+            setBalloonStyle({
+              backgroundColor: '#F7B033',
+              color: '#ffffff',
+            });
+          }
         }
       });
       image.addEventListener('mouseout', () => {
-        setBalloonText('이 페이지는 pc,모바일으로 제작되었습니다');
+        setBalloonText('이 페이지는 pc,모바일로 제작되었습니다');
         setBalloonStyle({
           backgroundColor: '#333333',
           color: '#ffffff',
@@ -54,7 +57,6 @@ export default function BalloonCursor() {
       });
     });
 
-    // 이메일에 마우스가 올려졌을 때 말풍선 텍스트 및 스타일 변경
     const email = document.querySelector('span.cursor-pointer');
     if (email) {
       email.addEventListener('mouseover', () => {
@@ -65,7 +67,7 @@ export default function BalloonCursor() {
         });
       });
       email.addEventListener('mouseout', () => {
-        setBalloonText('이 페이지는 pc,모바일으로 제작되었습니다');
+        setBalloonText('이 페이지는 pc,모바일로 제작되었습니다');
         setBalloonStyle({
           backgroundColor: '#333333',
           color: '#ffffff',
@@ -85,9 +87,8 @@ export default function BalloonCursor() {
         email.removeEventListener('mouseout', () => {});
       }
     };
-  }, [isMobile]);
+  }, [isMobile, excludePages]);
 
-  // 모바일에서는 말풍선을 렌더링하지 않음
   if (isMobile) {
     return null;
   }
@@ -102,7 +103,7 @@ export default function BalloonCursor() {
         backgroundColor: balloonStyle.backgroundColor,
         color: balloonStyle.color,
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-        pointerEvents: 'none', // 말풍선이 마우스 이벤트를 막지 않도록
+        pointerEvents: 'none',
       }}
     >
       {balloonText}
