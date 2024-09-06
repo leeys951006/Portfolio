@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 export default function BalloonCursor() {
-  const [balloonText, setBalloonText] = useState('이 페이지는 pc,모바일으로 제작되었습니다');
+  const [balloonText, setBalloonText] = useState('이 페이지는 pc,모바일로 제작되었습니다');
   const [balloonStyle, setBalloonStyle] = useState({
     backgroundColor: '#333333',
     color: '#ffffff',
@@ -19,10 +19,11 @@ export default function BalloonCursor() {
 
     const balloon = document.querySelector('.balloon');
 
-    const moveBalloon = (e) => {
-      if (!isMobile && balloon) {  // 모바일이 아닐 때만 말풍선 이동
-        balloon.style.left = `${e.clientX + 30}px`; // 오른쪽으로 30px 이동
-        balloon.style.top = `${e.clientY + 10}px`;  // 아래로 10px 이동
+    const moveBalloon = (e: MouseEvent) => {
+      if (!isMobile && balloon) {
+        // 모바일이 아닐 때만 말풍선 이동
+        (balloon as HTMLElement).style.left = `${e.clientX + 30}px`; // 오른쪽으로 30px 이동
+        (balloon as HTMLElement).style.top = `${e.clientY + 10}px`; // 아래로 10px 이동
       }
     };
 
@@ -33,9 +34,9 @@ export default function BalloonCursor() {
     images.forEach((image) => {
       image.addEventListener('mouseover', () => {
         if (
-          image.src.includes('github.png') ||
-          image.src.includes('notion.png') ||
-          image.src.includes('pdf.png')
+          (image as HTMLImageElement).src.includes('github.png') ||
+          (image as HTMLImageElement).src.includes('notion.png') ||
+          (image as HTMLImageElement).src.includes('pdf.png')
         ) {
           setBalloonText('클릭시 해당사이트로 이동합니다');
           setBalloonStyle({
