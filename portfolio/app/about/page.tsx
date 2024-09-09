@@ -19,21 +19,11 @@ export default function AboutPage() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: true,
+    arrows: false, // 화살표 삭제
     autoplay: true,
     autoplaySpeed: 3000,
     pauseOnHover: true,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
   };
-
-  function NextArrow({ className, style, onClick }: { className?: string; style?: React.CSSProperties; onClick?: () => void }) {
-    return <div className={className} style={{ ...style, display: 'block', background: 'gray', borderRadius: '50%' }} onClick={onClick} />;
-  }
-
-  function PrevArrow({ className, style, onClick }: { className?: string; style?: React.CSSProperties; onClick?: () => void }) {
-    return <div className={className} style={{ ...style, display: 'block', background: 'gray', borderRadius: '50%' }} onClick={onClick} />;
-  }
 
   const handleImageClick = (imageSet: string[]) => {
     setSliderImages(imageSet);
