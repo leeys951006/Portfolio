@@ -148,7 +148,12 @@ export default function AboutPage() {
             />
             <img src="/git.png" alt="Git" className="w-10 md:w-10 h-auto cursor-pointer" onClick={() => handleImageClick(['/git1.png', '/git2.png', '/git3.png', '/git4.png'])} />
             <img src="/github.png" alt="GitHub" className="w-10 md:w-10 h-auto cursor-pointer" onClick={() => handleImageClick(['/github1.png', '/github2.png'])} />
-            <img src="/figma.png" alt="Figma" className="w-10 md:w-10 h-auto" />
+            <img
+              src="/figma.png"
+              alt="Figma"
+              className="w-10 md:w-10 h-auto cursor-pointer"
+              onClick={() => handleImageClick(['/figma1.png', '/figma2.png', '/figma3.png', '/figma4.png', '/figma5.png', '/figma6.png'])}
+            />
           </div>
         </div>
       </div>
