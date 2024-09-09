@@ -1,0 +1,21 @@
+/* AboutPage.css */
+
+/* 애니메이션 효과를 위한 CSS */
+.slide-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.slide-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms ease-in, transform 300ms ease-in;
+}
+.slide-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+.slide-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
+}

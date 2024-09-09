@@ -1,15 +1,17 @@
 'use client';
-
 import { useState, useContext } from 'react';
 import { BrightModeContext } from '../ClientProvider';
 import BalloonCursor from '../../components/BalloonCursor';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { CSSTransition } from 'react-transition-group';
+import './AboutPage.css'; // 애니메이션 CSS 파일
 
 export default function AboutPage() {
   const { isBrightMode } = useContext(BrightModeContext);
   const [showSlider, setShowSlider] = useState(false);
+  const [sliderImages, setSliderImages] = useState<string[]>([]);
 
   const sliderSettings = {
     dots: true,
@@ -17,6 +19,29 @@ export default function AboutPage() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    arrows: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    pauseOnHover: true,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+  };
+
+  function NextArrow({ className, style, onClick }: { className?: string; style?: React.CSSProperties; onClick?: () => void }) {
+    return <div className={className} style={{ ...style, display: 'block', background: 'gray', borderRadius: '50%' }} onClick={onClick} />;
+  }
+
+  function PrevArrow({ className, style, onClick }: { className?: string; style?: React.CSSProperties; onClick?: () => void }) {
+    return <div className={className} style={{ ...style, display: 'block', background: 'gray', borderRadius: '50%' }} onClick={onClick} />;
+  }
+
+  const handleImageClick = (imageSet: string[]) => {
+    setSliderImages(imageSet);
+    setShowSlider(true);
+  };
+
+  const handleCloseSlider = () => {
+    setShowSlider(false);
   };
 
   return (
@@ -79,6 +104,27 @@ export default function AboutPage() {
         </div>
       </div>
 
+      {/* New Section 슬라이드 */}
+      <CSSTransition in={showSlider} timeout={300} classNames="slide" unmountOnExit onExited={() => setSliderImages([])}>
+        <div className="w-full md:w-7/12 bg-white shadow-md rounded-lg p-4 flex flex-col items-center">
+          <h2 className="text-2xl font-bold text-center mb-4" style={{ color: '#333333' }}>
+            New Section
+          </h2>
+
+          <Slider {...sliderSettings} className="w-full">
+            {sliderImages.map((image, index) => (
+              <div key={index} className="flex justify-center items-center">
+                <img src={image} alt={`Slide ${index + 1}`} className="w-full h-auto object-cover" />
+              </div>
+            ))}
+          </Slider>
+
+          <button className="mt-4 px-4 py-2 bg-gray-800 text-white rounded-md" onClick={handleCloseSlider}>
+            Close
+          </button>
+        </div>
+      </CSSTransition>
+
       {/* Tool 박스 */}
       <div className="w-full md:w-full bg-white flex flex-col items-center p-4">
         <div className="w-full md:w-1/4 bg-white shadow-md rounded-lg p-4 mb-4">
@@ -86,57 +132,27 @@ export default function AboutPage() {
             Tool
           </h2>
           <div className="flex flex-row flex-wrap items-center justify-center space-x-4">
-            <img src="/notion.png" alt="Notion" className="w-10 md:w-10 h-auto cursor-pointer" onClick={() => setShowSlider(true)} />
-            <img src="/slack.png" alt="Slack" className="w-10 md:w-10 h-auto" />
+            <img
+              src="/notion.png"
+              alt="Notion"
+              className="w-10 md:w-10 h-auto cursor-pointer"
+              onClick={() =>
+                handleImageClick(['/notion1.png', '/notion2.png', '/notion3.png', '/notion4.png', '/notion5.png', '/notion6.png', '/notion7.png', '/notion8.png', '/notion9.png'])
+              }
+            />
+            <img
+              src="/slack.png"
+              alt="Slack"
+              className="w-10 md:w-10 h-auto cursor-pointer"
+              onClick={() => handleImageClick(['/slack1.png', '/slack2.png', '/slack3.png', '/slack4.png', '/slack5.png', '/slack6.png'])}
+            />
             <img src="/git.png" alt="Git" className="w-10 md:w-10 h-auto" />
             <img src="/github.png" alt="GitHub" className="w-10 md:w-10 h-auto" />
             <img src="/figma.png" alt="Figma" className="w-10 md:w-10 h-auto" />
           </div>
         </div>
-
-        {/* New Section 슬라이드 */}
-        {showSlider && (
-          <div className="w-full md:w-full bg-white shadow-md rounded-lg p-4">
-            <h2 className="text-2xl font-bold text-center mb-4" style={{ color: '#333333' }}>
-              New Section
-            </h2>
-
-            <Slider {...sliderSettings}>
-              <div className="flex justify-center">
-                <img src="/notion1.png" alt="Notion 1" className="w-full md:w-80 h-auto" />
-              </div>
-              <div className="flex justify-center">
-                <img src="/notion2.png" alt="Notion 2" className="w-full md:w-80 h-auto" />
-              </div>
-              <div className="flex justify-center">
-                <img src="/notion3.png" alt="Notion 3" className="w-full md:w-80 h-auto" />
-              </div>
-              <div className="flex justify-center">
-                <img src="/notion4.png" alt="Notion 4" className="w-full md:w-80 h-auto" />
-              </div>
-              <div className="flex justify-center">
-                <img src="/notion5.png" alt="Notion 5" className="w-full md:w-80 h-auto" />
-              </div>
-              <div className="flex justify-center">
-                <img src="/notion6.png" alt="Notion 6" className="w-full md:w-80 h-auto" />
-              </div>
-              <div className="flex justify-center">
-                <img src="/notion7.png" alt="Notion 7" className="w-full md:w-80 h-auto" />
-              </div>
-              <div className="flex justify-center">
-                <img src="/notion8.png" alt="Notion 8" className="w-full md:w-80 h-auto" />
-              </div>
-              <div className="flex justify-center">
-                <img src="/notion9.png" alt="Notion 9" className="w-full md:w-80 h-auto" />
-              </div>
-            </Slider>
-
-            <button className="mt-4 px-4 py-2 bg-gray-800 text-white rounded-md" onClick={() => setShowSlider(false)}>
-              Close
-            </button>
-          </div>
-        )}
       </div>
+
       <BalloonCursor excludePages={['about']} />
     </div>
   );

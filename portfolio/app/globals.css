@@ -23,3 +23,17 @@ body {
   white-space: nowrap; /* 말풍선 안에 텍스트가 한 줄에 표시되도록 설정 */
   transition: transform 0.1s ease, opacity 0.1s ease;
 }
+
+/* globals.css 또는 컴포넌트의 스타일 시트에 추가 */
+.slick-dots {
+  bottom: 10px; /* 점의 위치 조정 */
+}
+
+.slick-dots li button:before {
+  font-size: 50px; /* 점의 크기 조정 */
+  color: #333333; /* 점의 색상 조정 */
+}
+
+.slick-dots li.slick-active button:before {
+  color: #f7b033; /* 활성화된 점의 색상 조정 */
+}
