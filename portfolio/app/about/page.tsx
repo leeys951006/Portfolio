@@ -104,27 +104,6 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* New Section 슬라이드 */}
-      <CSSTransition in={showSlider} timeout={300} classNames="slide" unmountOnExit onExited={() => setSliderImages([])}>
-        <div className="w-full md:w-7/12 bg-white shadow-md rounded-lg p-4 flex flex-col items-center">
-          <h2 className="text-2xl font-bold text-center mb-4" style={{ color: '#333333' }}>
-            New Section
-          </h2>
-
-          <Slider {...sliderSettings} className="w-full">
-            {sliderImages.map((image, index) => (
-              <div key={index} className="flex justify-center items-center">
-                <img src={image} alt={`Slide ${index + 1}`} className="w-full h-auto object-cover" />
-              </div>
-            ))}
-          </Slider>
-
-          <button className="mt-4 px-4 py-2 bg-gray-800 text-white rounded-md" onClick={handleCloseSlider}>
-            Close
-          </button>
-        </div>
-      </CSSTransition>
-
       {/* Tool 박스 */}
       <div className="w-full md:w-full bg-white flex flex-col items-center p-4">
         <div className="w-full md:w-1/4 bg-white shadow-md rounded-lg p-4 mb-4">
@@ -157,6 +136,26 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
+
+      {/* New Section 슬라이드 */}
+      <CSSTransition in={showSlider} timeout={300} classNames="slide" unmountOnExit onExited={() => setSliderImages([])}>
+        <div className="w-full md:w-7/12 bg-white shadow-md rounded-lg p-4 flex flex-col items-center relative pb-10">
+          <button className="absolute top-2 right-2 text-2xl font-bold text-gray-800 hover:text-gray-600" onClick={handleCloseSlider}>
+            ✖︎
+          </button>
+          <h2 className="text-2xl font-bold text-center mb-4" style={{ color: '#333333' }}>
+            New Section
+          </h2>
+
+          <Slider {...sliderSettings} className="w-full">
+            {sliderImages.map((image, index) => (
+              <div key={index} className="flex justify-center items-center">
+                <img src={image} alt={`Slide ${index + 1}`} className="w-full h-auto object-cover" />
+              </div>
+            ))}
+          </Slider>
+        </div>
+      </CSSTransition>
 
       <BalloonCursor excludePages={['about']} />
     </div>
