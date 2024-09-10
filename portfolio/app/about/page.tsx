@@ -1,7 +1,7 @@
 'use client';
 import { useState, useContext } from 'react';
 import { BrightModeContext } from '../ClientProvider';
-import BalloonCursor from '../../components/BalloonCursor';
+import BalloonCursorAbout from '../../components/BalloonCursorAbout';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -147,7 +147,7 @@ export default function AboutPage() {
         </div>
       </CSSTransition>
 
-      <BalloonCursor excludePages={['about']} />
+      <BalloonCursorAbout />
     </div>
   );
 }
