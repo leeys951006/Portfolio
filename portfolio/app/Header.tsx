@@ -51,20 +51,12 @@ export default function Header() {
             소개
           </Link>
           <Link
-            href="/team-projects"
+            href="/project-group"
             className={`font-semibold ${isBrightMode ? 'text-[#F7B033]' : 'text-[#333333]'} hover:underline ${
               isBrightMode ? 'hover:text-[#FFD700]' : 'hover:text-[#666666]'
             } transition-colors duration-200`}
           >
-            팀프로젝트
-          </Link>
-          <Link
-            href="/personal-projects"
-            className={`font-semibold ${isBrightMode ? 'text-[#F7B033]' : 'text-[#333333]'} hover:underline ${
-              isBrightMode ? 'hover:text-[#FFD700]' : 'hover:text-[#666666]'
-            } transition-colors duration-200`}
-          >
-            개인프로젝트
+            프로젝트
           </Link>
         </nav>
 
