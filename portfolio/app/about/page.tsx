@@ -40,39 +40,39 @@ export default function AboutPage() {
   };
 
   return (
-    <div className={`min-h-screen ${isBrightMode ? 'bg-white' : 'bg-white'} flex flex-col items-center justify-center m-0`}>
+    <div className={` ${isBrightMode ? 'bg-white' : 'bg-white'} flex flex-col items-center justify-center m-0`}>
       {/* Languege 박스 */}
       <div
-        className={`flex flex-col items-center justify-center space-y-8 md:flex-col md:space-y-8 w-full h-180 md:w-full md:h-240 ${isBrightMode ? 'bg-[#F7B033]' : 'bg-[#333333]'}`}
+        className={`flex flex-col items-center justify-center space-y-8 md:flex-col md:space-y-8 w-full h-120 md:w-full md:h-160 ${isBrightMode ? 'bg-[#F7B033]' : 'bg-[#333333]'}`}
       >
         <h1 className="text-3xl font-bold text-white">Front-End</h1>
 
         {/* Front-end 이미지들 */}
         <div className="flex flex-wrap items-center justify-center space-x-4">
-          <img src="/html.png" alt="HTML" className="w-20 h-auto shadow-lg rounded-md transition-transform transform hover:scale-105" />
-          <img src="/css.png" alt="CSS" className="w-20 h-auto shadow-lg rounded-md transition-transform transform hover:scale-105" />
-          <img src="/js.png" alt="JavaScript" className="w-20 h-auto shadow-lg rounded-md transition-transform transform hover:scale-105" />
-          <img src="/ts.png" alt="TypeScript" className="w-20 h-auto shadow-lg rounded-md transition-transform transform hover:scale-105" />
-          <img src="/react.png" alt="React" className="w-20 h-auto shadow-lg rounded-md transition-transform transform hover:scale-105" />
-          <img src="/next.js.png" alt="Next.js" className="w-20 h-auto shadow-lg rounded-md transition-transform transform hover:scale-105" />
+          <img src="/html.png" alt="HTML" className="w-12 h-auto md:w-20 md:h-auto shadow-lg rounded-md transition-transform transform hover:scale-105" />
+          <img src="/css.png" alt="CSS" className="w-12 h-auto md:w-20 md:h-auto shadow-lg rounded-md transition-transform transform hover:scale-105" />
+          <img src="/js.png" alt="JavaScript" className="w-12 h-auto md:w-20 md:h-auto shadow-lg rounded-md transition-transform transform hover:scale-105" />
+          <img src="/ts.png" alt="TypeScript" className="w-12 h-auto md:w-20 md:h-auto shadow-lg rounded-md transition-transform transform hover:scale-105" />
+          <img src="/react.png" alt="React" className="w-12 h-auto md:w-20 md:h-auto shadow-lg rounded-md transition-transform transform hover:scale-105" />
+          <img src="/next.js.png" alt="Next.js" className="w-12 h-auto md:w-20 md:h-auto shadow-lg rounded-md transition-transform transform hover:scale-105" />
         </div>
 
         <h1 className="text-3xl font-bold text-white">Back-End</h1>
 
         {/* Back-end 이미지들 */}
         <div className="flex flex-wrap items-center justify-center space-x-4">
-          <img src="/python.png" alt="Python" className="w-20 h-auto shadow-lg rounded-md transition-transform transform hover:scale-105" />
-          <img src="/node.js.png" alt="Node.js" className="w-20 h-auto shadow-lg rounded-md transition-transform transform hover:scale-105" />
-          <img src="/fastapi.png" alt="FastAPI" className="w-20 h-auto shadow-lg rounded-md transition-transform transform hover:scale-105" />
-          <img src="/nest.js.png" alt="Nest.js" className="w-20 h-auto shadow-lg rounded-md transition-transform transform hover:scale-105" />
+          <img src="/python.png" alt="Python" className="w-12 h-auto md:w-20 md:h-auto shadow-lg rounded-md transition-transform transform hover:scale-105" />
+          <img src="/node.js.png" alt="Node.js" className="w-12 h-auto md:w-20 md:h-auto shadow-lg rounded-md transition-transform transform hover:scale-105" />
+          <img src="/fastapi.png" alt="FastAPI" className="w-12 h-auto md:w-20 md:h-auto shadow-lg rounded-md transition-transform transform hover:scale-105" />
+          <img src="/nest.js.png" alt="Nest.js" className="w-12 h-auto md:w-20 md:h-auto shadow-lg rounded-md transition-transform transform hover:scale-105" />
         </div>
 
         <h1 className="text-3xl font-bold text-white">Data Base</h1>
 
         {/* Data Base 이미지들 */}
         <div className="flex flex-wrap items-center justify-center space-x-4">
-          <img src="/mysql.png" alt="MySQL" className="w-20 h-auto shadow-lg rounded-md transition-transform transform hover:scale-105" />
-          <img src="/sqlite.png" alt="SQLite" className="w-20 h-auto shadow-lg rounded-md transition-transform transform hover:scale-105" />
+          <img src="/mysql.png" alt="MySQL" className="w-12 h-auto md:w-20 md:h-auto shadow-lg rounded-md transition-transform transform hover:scale-105" />
+          <img src="/sqlite.png" alt="SQLite" className="w-12 h-auto md:w-20 md:h-auto shadow-lg rounded-md transition-transform transform hover:scale-105" />
         </div>
       </div>
 

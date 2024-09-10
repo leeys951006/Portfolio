@@ -19,3 +19,14 @@
   transform: scale(0.9);
   transition: opacity 300ms ease-out, transform 300ms ease-out;
 }
+
+/* AboutPage.css */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.min-h-screen {
+  margin: 0; /* 여백 제거 */
+  padding: 0; /* 패딩 제거 */
+}
