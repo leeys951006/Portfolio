@@ -7,6 +7,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { CSSTransition } from 'react-transition-group';
 import './AboutPage.css'; // 애니메이션 CSS 파일
+import Image from 'next/image'; // 'Image' 컴포넌트를 가져옵니다.
 
 export default function AboutPage() {
   const { isBrightMode } = useContext(BrightModeContext);
@@ -32,6 +33,10 @@ export default function AboutPage() {
 
   const handleCloseSlider = () => {
     setShowSlider(false);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -104,7 +109,7 @@ export default function AboutPage() {
             <img
               src="/notion.png"
               alt="Notion"
-              className="w-10 md:w-10 h-auto cursor-pointer"
+              className="w-10 md:w-10 h-auto cursor-pointer hover:opacity-75 transition-opacity duration-200"
               onClick={() =>
                 handleImageClick(['/notion1.png', '/notion2.png', '/notion3.png', '/notion4.png', '/notion5.png', '/notion6.png', '/notion7.png', '/notion8.png', '/notion9.png'])
               }
@@ -112,15 +117,25 @@ export default function AboutPage() {
             <img
               src="/slack.png"
               alt="Slack"
-              className="w-10 md:w-10 h-auto cursor-pointer"
+              className="w-10 md:w-10 h-auto cursor-pointer hover:opacity-75 transition-opacity duration-200"
               onClick={() => handleImageClick(['/slack1.png', '/slack2.png', '/slack3.png', '/slack4.png', '/slack5.png', '/slack6.png'])}
             />
-            <img src="/git.png" alt="Git" className="w-10 md:w-10 h-auto cursor-pointer" onClick={() => handleImageClick(['/git1.png', '/git2.png', '/git3.png', '/git4.png'])} />
-            <img src="/github.png" alt="GitHub" className="w-10 md:w-10 h-auto cursor-pointer" onClick={() => handleImageClick(['/github1.png', '/github2.png'])} />
+            <img
+              src="/git.png"
+              alt="Git"
+              className="w-10 md:w-10 h-auto cursor-pointer hover:opacity-75 transition-opacity duration-200"
+              onClick={() => handleImageClick(['/git1.png', '/git2.png', '/git3.png', '/git4.png'])}
+            />
+            <img
+              src="/github.png"
+              alt="GitHub"
+              className="w-10 md:w-10 h-auto cursor-pointer hover:opacity-75 transition-opacity duration-200"
+              onClick={() => handleImageClick(['/github1.png', '/github2.png'])}
+            />
             <img
               src="/figma.png"
               alt="Figma"
-              className="w-10 md:w-10 h-auto cursor-pointer"
+              className="w-10 md:w-10 h-auto cursor-pointer hover:opacity-75 transition-opacity duration-200"
               onClick={() => handleImageClick(['/figma1.png', '/figma2.png', '/figma3.png', '/figma4.png', '/figma5.png', '/figma6.png'])}
             />
           </div>
@@ -148,6 +163,11 @@ export default function AboutPage() {
       </CSSTransition>
 
       <BalloonCursorAbout />
+
+      {/* Scroll to Top 버튼 */}
+      <button onClick={scrollToTop} className="fixed bottom-8 right-8 w-12 h-12 flex items-center justify-center rounded-full shadow-lg">
+        <Image src={isBrightMode ? '/위.png' : '/위2.png'} alt="Scroll to top" width={40} height={40} />
+      </button>
     </div>
   );
 }
