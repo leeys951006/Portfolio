@@ -86,18 +86,11 @@ export default function Header() {
               소개
             </Link>
             <Link
-              href="/team-projects"
+              href="/project-groups"
               onClick={toggleMenu}
               className={`block px-4 py-2 font-semibold hover:text-gray-500 transition-colors duration-200 ${isBrightMode ? 'text-[#F7B033]' : 'text-[#333333]'}`}
             >
-              팀프로젝트
-            </Link>
-            <Link
-              href="/personal-projects"
-              onClick={toggleMenu}
-              className={`block px-4 py-2 font-semibold hover:text-gray-500 transition-colors duration-200 ${isBrightMode ? 'text-[#F7B033]' : 'text-[#333333]'}`}
-            >
-              개인프로젝트
+              프로젝트
             </Link>
           </nav>
         </div>
