@@ -1,6 +1,6 @@
 'use client';
 import { useState, useContext } from 'react';
-import { BrightModeContext } from '../ClientProvider';
+import { BrightModeContext } from '../../app/ClientProvider';
 import BalloonCursorAbout from '../../components/BalloonCursorAbout';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';

@@ -1,7 +1,7 @@
 'use client';
 
-import { useContext, useState } from 'react';
-import { BrightModeContext } from '../ClientProvider';
+import { useContext, useState, useEffect } from 'react';
+import { BrightModeContext } from '../../app/ClientProvider';
 import BalloonCursor from '../../components/BalloonCursor';
 
 export default function HomePage() {
@@ -32,9 +32,22 @@ export default function HomePage() {
     items = groupItems.concat(soloItems);
   }
 
+  // 상태 업데이트 후 렌더링 강제
+  useEffect(() => {
+    // 상태 업데이트가 적용되지 않는 경우 강제로 렌더링
+    const handleResize = () => {
+      // 페이지 리사이즈 이벤트를 감지하여 렌더링 강제
+      window.dispatchEvent(new Event('resize'));
+    };
+    handleResize();
+  }, [isBrightMode]);
+
   return (
     <div className={`min-h-screen ${isBrightMode ? 'bg-[#f0f0f0]' : 'bg-white'} flex flex-col items-center justify-start`}>
-      <div className={`w-full min-h-screen flex flex-col items-center justify-start pt-16 pb-16 space-y-8 ${isBrightMode ? 'bg-[#F7B033]' : 'bg-[#333333]'}`}>
+      <div
+        style={{ paddingTop: '40px', paddingBottom: '40px' }}
+        className={`w-full min-h-screen flex flex-col items-center justify-start space-y-8 ${isBrightMode ? 'bg-[#F7B033]' : 'bg-[#333333]'}`}
+      >
         {/* 버튼 컨트롤러 */}
         <div className="w-full flex items-center justify-center">
           <div style={{ backgroundColor: buttonBgColor }} className="p-4 rounded-full shadow-lg border border-gray-300 relative">
