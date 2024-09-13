@@ -18,10 +18,24 @@ export default function HomePage() {
     Solo: 'translate-x-[78px]',
   };
 
+  // 각 카테고리의 아이템 정의
+  const groupItems: string[] = ['Group Item'];
+  const soloItems: string[] = ['Solo Item 1', 'Solo Item 2', 'Solo Item 3', 'Solo Item 4', 'Solo Item 5', 'Solo Item 6'];
+
+  // 활성화된 버튼에 따라 표시할 아이템 결정
+  let items: string[] = [];
+  if (activeButton === 'Group') {
+    items = groupItems;
+  } else if (activeButton === 'Solo') {
+    items = soloItems;
+  } else if (activeButton === 'All') {
+    items = groupItems.concat(soloItems);
+  }
+
   return (
-    <div className={`min-h-screen ${isBrightMode ? 'bg-[#f0f0f0]' : 'bg-white'} flex flex-col items-center justify-between`}>
-      <div className={`w-full min-h-screen flex flex-col items-center justify-start pt-16 space-y-8 ${isBrightMode ? 'bg-[#F7B033]' : 'bg-[#333333]'}`}>
-        {/* 버튼 컨트롤러를 상단 중앙으로 이동 */}
+    <div className={`min-h-screen ${isBrightMode ? 'bg-[#f0f0f0]' : 'bg-white'} flex flex-col items-center justify-start`}>
+      <div className={`w-full min-h-screen flex flex-col items-center justify-start pt-16 pb-16 space-y-8 ${isBrightMode ? 'bg-[#F7B033]' : 'bg-[#333333]'}`}>
+        {/* 버튼 컨트롤러 */}
         <div className="w-full flex items-center justify-center">
           <div style={{ backgroundColor: buttonBgColor }} className="p-4 rounded-full shadow-lg border border-gray-300 relative">
             <div className="absolute inset-0 flex items-center justify-center">
@@ -39,6 +53,15 @@ export default function HomePage() {
               </button>
             </div>
           </div>
+        </div>
+
+        {/* 아이템 div */}
+        <div className="w-4/5 grid grid-cols-1 md:grid-cols-4 gap-4 ">
+          {items.map((item, index) => (
+            <div key={index} className="bg-gray-200 p-4 w-full h-[500px]">
+              {item}
+            </div>
+          ))}
         </div>
       </div>
       <BalloonCursor />
