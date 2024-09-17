@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import { useContext, useState, useEffect } from 'react';
 import { BrightModeContext } from '../../app/ClientProvider';
@@ -19,11 +19,18 @@ export default function HomePage() {
   };
 
   // 각 카테고리의 아이템 정의
-  const groupItems: string[] = ['Group Item'];
-  const soloItems: string[] = ['Solo Item 1', 'Solo Item 2', 'Solo Item 3', 'Solo Item 4', 'Solo Item 5', 'Solo Item 6'];
+  const groupItems: { name: string, image?: string }[] = [{ name: 'Group Item', image: '/ERP_main.png' }];
+  const soloItems: { name: string }[] = [
+    { name: 'Solo Item 1' },
+    { name: 'Solo Item 2' },
+    { name: 'Solo Item 3' },
+    { name: 'Solo Item 4' },
+    { name: 'Solo Item 5' },
+    { name: 'Solo Item 6' },
+  ];
 
   // 활성화된 버튼에 따라 표시할 아이템 결정
-  let items: string[] = [];
+  let items: { name: string, image?: string }[] = [];
   if (activeButton === 'Group') {
     items = groupItems;
   } else if (activeButton === 'Solo') {
@@ -71,8 +78,16 @@ export default function HomePage() {
         {/* 아이템 div */}
         <div className="w-4/5 grid grid-cols-1 md:grid-cols-4 gap-4 ">
           {items.map((item, index) => (
-            <div key={index} className="bg-gray-200 p-4 w-full h-[500px]">
-              {item}
+            <div key={index} className="bg-gray-200  w-full h-[500px] flex items-start justify-center">
+              {item.image ? (
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="max-w-full h-auto object-contain mt-6" // 가로 사이즈 최대화
+                />
+              ) : (
+                item.name
+              )}
             </div>
           ))}
         </div>
