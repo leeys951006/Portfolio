@@ -19,18 +19,54 @@ export default function HomePage() {
   };
 
   // 각 카테고리의 아이템 정의
-  const groupItems: { name: string, image?: string }[] = [{ name: 'Group Item', image: '/ERP_main.png' }];
-  const soloItems: { name: string }[] = [
-    { name: 'Solo Item 1' },
-    { name: 'Solo Item 2' },
-    { name: 'Solo Item 3' },
-    { name: 'Solo Item 4' },
-    { name: 'Solo Item 5' },
-    { name: 'Solo Item 6' },
+  const groupItems: { name: string, image?: string, projectName: string, duration: string, languages: string, frameworks: string }[] = [
+    {
+      name: 'Group Item',
+      image: '/ERP_main.png',
+      projectName: 'ERP System',
+      duration: '24.07.15 - 24.08.14',
+      languages: 'Tailwind CSS, TypeScript, Python',
+      frameworks: 'React, Next.js, Nest.js, Fast API, SQLite',
+    }
+  ];
+
+  const soloItems: { name: string, image?: string, projectName: string, duration: string, languages: string, frameworks: string }[] = [
+    {
+      name: 'Solo Item 1',
+      image: '/포켓몬.png',
+      projectName: '랜덤 포켓몬',
+      duration: '24.05.11 - 24.05.13',
+      languages: 'JavaScript',
+      frameworks: 'Node.js',
+    },
+    {
+      name: 'Solo Item 2',
+      image: '/스트레스 blog.png',
+      projectName: '스트레스 블로그',
+      duration: '24.05.24 - 24.07.07',
+      languages: 'Html, CSS, JavaScript',
+      frameworks: 'Node.js',
+    },
+    {
+      name: 'Solo Item 3',
+      image: '/영양제.png',
+      projectName: '영양제 조절 사이트',
+      duration: '24.07.15 - 24.08.28',
+      languages: 'Html, CSS, JavaScript',
+      frameworks: 'SQLite, Node.js',
+    },
+    {
+      name: 'Solo Item 4',
+      image: '/PlanT.jpg',
+      projectName: '여행 공유 사이트',
+      duration: '24.08.23 - 진행중',
+      languages: 'Tailwind CSS, TypeScript, Python',      
+      frameworks: 'React, Next.js, MySQL',
+    }
   ];
 
   // 활성화된 버튼에 따라 표시할 아이템 결정
-  let items: { name: string, image?: string }[] = [];
+  let items: { name: string, image?: string, projectName: string, duration: string, languages: string, frameworks: string }[] = [];
   if (activeButton === 'Group') {
     items = groupItems;
   } else if (activeButton === 'Solo') {
@@ -76,18 +112,24 @@ export default function HomePage() {
         </div>
 
         {/* 아이템 div */}
-        <div className="w-4/5 grid grid-cols-1 md:grid-cols-4 gap-4 ">
+        <div className="w-4/5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {items.map((item, index) => (
-            <div key={index} className="bg-gray-200  w-full h-[500px] flex items-start justify-center">
-              {item.image ? (
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="max-w-full h-auto object-contain mt-6" // 가로 사이즈 최대화
-                />
-              ) : (
-                item.name
-              )}
+            <div key={index} className="bg-gray-200 w-full h-[500px] flex flex-col items-center justify-between p-4">
+              <div className="w-full flex flex-col items-center mb-4">
+                {item.image && (
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="max-w-full h-auto object-contain mb-4"
+                  />
+                )}
+              </div>
+              <div className="w-full flex flex-col items-start text-left mb-8 ml-1">
+                <h3 className="text-2xl font-sans font-semibold mb-4">{item.projectName}</h3>
+                <p className="text-xl font-sans mb-2">작업기간: {item.duration}</p>
+                <p className="text-xl font-sans mb-2">사용언어: {item.languages}</p>
+                <p className="text-xl font-sans">프레임워크: {item.frameworks}</p>
+              </div>
             </div>
           ))}
         </div>
