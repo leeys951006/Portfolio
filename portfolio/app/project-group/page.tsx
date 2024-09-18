@@ -61,7 +61,7 @@ export default function HomePage() {
       projectName: '여행 공유 사이트',
       duration: '24.08.23 - 진행중',
       languages: 'Tailwind CSS, TypeScript, Python',      
-      frameworks: 'React, Next.js, MySQL',
+      frameworks: 'React, Next.js, Nest.js, MySQL',
     }
   ];
 
