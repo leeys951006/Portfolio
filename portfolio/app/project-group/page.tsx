@@ -3,6 +3,7 @@
 import { useContext, useState, useEffect } from 'react';
 import { BrightModeContext } from '../../app/ClientProvider';
 import BalloonCursor from '../../components/BalloonCursor';
+import Image from 'next/image';
 
 // Item 타입 정의
 interface Item {
@@ -154,6 +155,11 @@ export default function HomePage() {
     handleResize();
   }, [isBrightMode]);
 
+  // 페이지 최상단으로 스크롤하는 함수
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className={`min-h-screen ${isBrightMode ? 'bg-[#f0f0f0]' : 'bg-white'} flex flex-col items-center justify-start`}>
       <div
@@ -187,6 +193,12 @@ export default function HomePage() {
           ))}
         </div>
       </div>
+
+      {/* 스크롤 상단으로 이동 버튼 */}
+      <button onClick={scrollToTop} className="fixed bottom-8 right-8 w-12 h-12 flex items-center justify-center rounded-full shadow-lg">
+        <Image src={isBrightMode ? '/위.png' : '/위2.png'} alt="Scroll to top" width={40} height={40} />
+      </button>
+
       <BalloonCursor />
     </div>
   );
