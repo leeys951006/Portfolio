@@ -18,6 +18,24 @@ interface Item {
 const ItemComponent: React.FC<{ item: Item }> = ({ item }) => {
   const [isHovered, setIsHovered] = useState(false);
 
+  // 1. 모달 이미지 상태 관리
+  const [modalImage, setModalImage] = useState<string | null>(null);
+
+  // 초기 모달 이미지 설정
+  const openModal = () => {
+    if (item.projectName === 'ERP System') {
+      setModalImage('/ERP_drawio.png');
+    } else {
+      console.log('자세히 보기 클릭됨');
+    }
+  };
+
+  // 모달 닫기
+  const closeModal = () => {
+    setModalImage(null);
+    setIsHovered(false); // 모달을 닫을 때 isHovered 상태 초기화
+  };
+
   return (
     <div
       className="relative bg-gray-50 w-full h-[500px] flex flex-col items-center justify-between p-4"
@@ -26,13 +44,7 @@ const ItemComponent: React.FC<{ item: Item }> = ({ item }) => {
     >
       {isHovered && (
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50">
-          <button
-            className="bg-[#333333] text-white border border-white px-4 py-2 rounded mb-2"
-            onClick={() => {
-              // '자세히 보기' 클릭 시 처리
-              console.log('자세히 보기 클릭됨');
-            }}
-          >
+          <button className="bg-[#333333] text-white border border-white px-4 py-2 rounded mb-2" onClick={openModal}>
             자세히 보기
           </button>
           <button
@@ -46,7 +58,6 @@ const ItemComponent: React.FC<{ item: Item }> = ({ item }) => {
           </button>
         </div>
       )}
-
       <div className="w-full flex flex-col items-center mb-4">{item.image && <img src={item.image} alt={item.name} className="max-w-full h-auto object-contain mb-4" />}</div>
       <div className="w-full flex flex-col items-start text-left mb-8 ml-1">
         <h3 className="text-2xl font-sans font-semibold mb-3">{item.projectName}</h3>
@@ -70,6 +81,66 @@ const ItemComponent: React.FC<{ item: Item }> = ({ item }) => {
           ))}
         </div>
       </div>
+
+      {/* 모달창 */}
+      {modalImage && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white p-6 rounded-lg relative max-w-5xl w-full mx-4">
+            <button className="absolute top-2 right-2 text-gray-700 hover:text-gray-500 text-3xl font-bold" onClick={closeModal}>
+              &times;
+            </button>
+
+            <Image
+              src={modalImage}
+              alt="ERP Details"
+              width={1200} // 더 큰 크기로 조정
+              height={900} // 더 큰 크기로 조정
+              className="object-contain w-full h-auto"
+            />
+            {/* 3. 하단의 작은 이미지들 */}
+            {item.projectName === 'ERP System' && (
+              <div className="flex overflow-x-auto mt-4 space-x-4 py-2">
+                <div className="w-32 h-32 cursor-pointer relative flex-shrink-0" onClick={() => setModalImage('/ERP_drawio.png')}>
+                  <Image src="/ERP_drawio.png" alt="ERP Draw.io" layout="fill" objectFit="cover" className="rounded shadow" />
+                </div>
+                <div className="w-32 h-32 cursor-pointer relative flex-shrink-0" onClick={() => setModalImage('/ERP_figma.png')}>
+                  <Image src="/ERP_figma.png" alt="ERP Figma" layout="fill" objectFit="cover" className="rounded shadow" />
+                </div>
+                <div className="w-32 h-32 cursor-pointer relative flex-shrink-0" onClick={() => setModalImage('/ERP_google-sheet.png')}>
+                  <Image src="/ERP_google-sheet.png" alt="ERP google-sheet" layout="fill" objectFit="cover" className="rounded shadow" />
+                </div>
+                <div className="w-32 h-32 cursor-pointer relative flex-shrink-0" onClick={() => setModalImage('/ERP_main.png')}>
+                  <Image src="/ERP_main.png" alt="ERP main" layout="fill" objectFit="cover" className="rounded shadow" />
+                </div>
+                <div className="w-32 h-32 cursor-pointer relative flex-shrink-0" onClick={() => setModalImage('/ERP_열추가.png')}>
+                  <Image src="/ERP_열추가.png" alt="ERP 열추가" layout="fill" objectFit="cover" className="rounded shadow" />
+                </div>
+                <div className="w-32 h-32 cursor-pointer relative flex-shrink-0" onClick={() => setModalImage('/ERP_행추가.png')}>
+                  <Image src="/ERP_행추가.png" alt="ERP 행추가" layout="fill" objectFit="cover" className="rounded shadow" />
+                </div>
+                <div className="w-32 h-32 cursor-pointer relative flex-shrink-0" onClick={() => setModalImage('/ERP_테이블추가.png')}>
+                  <Image src="/ERP_테이블추가.png" alt="ERP 테이블추가" layout="fill" objectFit="cover" className="rounded shadow" />
+                </div>
+                <div className="w-32 h-32 cursor-pointer relative flex-shrink-0" onClick={() => setModalImage('/ERP_deleted.png')}>
+                  <Image src="/ERP_deleted.png" alt="ERP deleted" layout="fill" objectFit="cover" className="rounded shadow" />
+                </div>
+                <div className="w-32 h-32 cursor-pointer relative flex-shrink-0" onClick={() => setModalImage('/ERP_insert.png')}>
+                  <Image src="/ERP_insert.png" alt="ERP insert" layout="fill" objectFit="cover" className="rounded shadow" />
+                </div>
+                <div className="w-32 h-32 cursor-pointer relative flex-shrink-0" onClick={() => setModalImage('/ERP_password.png')}>
+                  <Image src="/ERP_password.png" alt="ERP password" layout="fill" objectFit="cover" className="rounded shadow" />
+                </div>
+                <div className="w-32 h-32 cursor-pointer relative flex-shrink-0" onClick={() => setModalImage('/ERP_setting.png')}>
+                  <Image src="/ERP_setting.png" alt="ERP setting" layout="fill" objectFit="cover" className="rounded shadow" />
+                </div>
+                <div className="w-32 h-32 cursor-pointer relative flex-shrink-0" onClick={() => setModalImage('/ERP_template.png')}>
+                  <Image src="/ERP_template.png" alt="ERP template" layout="fill" objectFit="cover" className="rounded shadow" />
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
