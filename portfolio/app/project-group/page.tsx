@@ -1,8 +1,77 @@
-'use client'
+'use client';
 
 import { useContext, useState, useEffect } from 'react';
 import { BrightModeContext } from '../../app/ClientProvider';
 import BalloonCursor from '../../components/BalloonCursor';
+
+// Item 타입 정의
+interface Item {
+  name: string;
+  image?: string;
+  projectName: string;
+  duration: string;
+  languages: string;
+  frameworks: string;
+}
+
+const ItemComponent: React.FC<{ item: Item }> = ({ item }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <div
+      className="relative bg-gray-50 w-full h-[500px] flex flex-col items-center justify-between p-4"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {isHovered && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50">
+          <button
+            className="bg-[#333333] text-white border border-white px-4 py-2 rounded mb-2"
+            onClick={() => {
+              // '자세히 보기' 클릭 시 처리
+              console.log('자세히 보기 클릭됨');
+            }}
+          >
+            자세히 보기
+          </button>
+          <button
+            className="bg-[#333333] text-white border border-white px-4 py-2 rounded"
+            onClick={() => {
+              // 'Notion' 클릭 시 처리
+              console.log('Notion 클릭됨');
+            }}
+          >
+            Notion
+          </button>
+        </div>
+      )}
+
+      <div className="w-full flex flex-col items-center mb-4">{item.image && <img src={item.image} alt={item.name} className="max-w-full h-auto object-contain mb-4" />}</div>
+      <div className="w-full flex flex-col items-start text-left mb-8 ml-1">
+        <h3 className="text-2xl font-sans font-semibold mb-3">{item.projectName}</h3>
+        <p className="text-sm font-sans mb-3 text-gray-500">{item.duration}</p>
+
+        {/* Languages */}
+        <div className="text-sm font-sans mt-3 mb-3.5">
+          {item.languages.split(',').map((lang: string, index: number) => (
+            <span key={index} className="px-2 py-1 bg-yellow-300 rounded mr-2">
+              {lang.trim()}
+            </span>
+          ))}
+        </div>
+
+        {/* Frameworks */}
+        <div className="text-sm font-sans">
+          {item.frameworks.split(',').map((framework: string, index: number) => (
+            <span key={index} className="px-2 py-1 bg-blue-300 rounded mr-2">
+              {framework.trim()}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default function HomePage() {
   const { isBrightMode } = useContext(BrightModeContext);
@@ -19,7 +88,7 @@ export default function HomePage() {
   };
 
   // 각 카테고리의 아이템 정의
-  const groupItems: { name: string, image?: string, projectName: string, duration: string, languages: string, frameworks: string }[] = [
+  const groupItems: Item[] = [
     {
       name: 'Group Item',
       image: '/ERP_main.png',
@@ -27,10 +96,10 @@ export default function HomePage() {
       duration: '24.07.15 - 24.08.14',
       languages: 'Tailwind CSS, TypeScript, Python',
       frameworks: 'React, Next.js, Nest.js, Fast API, SQLite',
-    }
+    },
   ];
 
-  const soloItems: { name: string, image?: string, projectName: string, duration: string, languages: string, frameworks: string }[] = [
+  const soloItems: Item[] = [
     {
       name: 'Solo Item 1',
       image: '/포켓몬.png',
@@ -44,7 +113,7 @@ export default function HomePage() {
       image: '/스트레스 blog.png',
       projectName: '스트레스 블로그',
       duration: '24.05.24 - 24.07.07',
-      languages: 'Html, CSS, JavaScript',
+      languages: 'HTML, CSS, JavaScript',
       frameworks: 'Node.js',
     },
     {
@@ -52,7 +121,7 @@ export default function HomePage() {
       image: '/영양제.png',
       projectName: '영양제 조절 사이트',
       duration: '24.07.15 - 24.08.28',
-      languages: 'Html, CSS, JavaScript',
+      languages: 'HTML, CSS, JavaScript',
       frameworks: 'SQLite, Node.js',
     },
     {
@@ -60,13 +129,13 @@ export default function HomePage() {
       image: '/PlanT.jpg',
       projectName: '여행 공유 사이트',
       duration: '24.08.23 - 진행중',
-      languages: 'Tailwind CSS, TypeScript, Python',      
+      languages: 'Tailwind CSS, TypeScript, Python',
       frameworks: 'React, Next.js, Nest.js, MySQL',
-    }
+    },
   ];
 
   // 활성화된 버튼에 따라 표시할 아이템 결정
-  let items: { name: string, image?: string, projectName: string, duration: string, languages: string, frameworks: string }[] = [];
+  let items: Item[] = [];
   if (activeButton === 'Group') {
     items = groupItems;
   } else if (activeButton === 'Solo') {
@@ -114,23 +183,7 @@ export default function HomePage() {
         {/* 아이템 div */}
         <div className="w-4/5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {items.map((item, index) => (
-            <div key={index} className="bg-gray-200 w-full h-[500px] flex flex-col items-center justify-between p-4">
-              <div className="w-full flex flex-col items-center mb-4">
-                {item.image && (
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="max-w-full h-auto object-contain mb-4"
-                  />
-                )}
-              </div>
-              <div className="w-full flex flex-col items-start text-left mb-8 ml-1">
-                <h3 className="text-2xl font-sans font-semibold mb-4">{item.projectName}</h3>
-                <p className="text-xl font-sans mb-2">작업기간: {item.duration}</p>
-                <p className="text-xl font-sans mb-2">사용언어: {item.languages}</p>
-                <p className="text-xl font-sans">프레임워크: {item.frameworks}</p>
-              </div>
-            </div>
+            <ItemComponent key={index} item={item} />
           ))}
         </div>
       </div>
