@@ -211,61 +211,61 @@ const ItemComponent: React.FC<{ item: Item }> = ({ item }) => {
               )}
               {item.projectName === '랜덤 포켓몬' && (
                 <>
-                  {modalImage === '/포켓몬이미지.png' && <p></p>}
-                  {modalImage === '/포켓몬1.png' && <p></p>}
-                  {modalImage === '/포켓몬2.png' && <p></p>}
-                  {modalImage === '/포켓몬3.png' && <p></p>}
+                  {modalImage === '/포켓몬이미지.png' && <p>랜덤 포켓몬 기능 작동</p>}
+                  {modalImage === '/포켓몬1.png' && <p>개발 초창기 작업이라 설계 없이 작업</p>}
+                  {modalImage === '/포켓몬2.png' && <p>Json파일을 이용해 포켓몬 이름 사용</p>}
+                  {modalImage === '/포켓몬3.png' && <p>포켓몬 코리아 사이트에 있는 포켓몬 이미지에 주소를 확인 후 이름과 맞춤</p>}
                 </>
               )}
               {item.projectName === '스트레스 블로그' && (
                 <>
-                  {modalImage === '/스트레스1.png' && <p></p>}
-                  {modalImage === '/스트레스2.png' && <p></p>}
-                  {modalImage === '/스트레스 blog.png' && <p></p>}
-                  {modalImage === '/스트레스 blog list.png' && <p></p>}
-                  {modalImage === '/스트레스 blog coments.png' && <p></p>}
+                  {modalImage === '/스트레스1.png' && <p>Figma를 사용하여 디자인 설계</p>}
+                  {modalImage === '/스트레스2.png' && <p>해당 작업기간에는 HTML에서 a태그를 사용하여 작업 및 페이지 구성</p>}
+                  {modalImage === '/스트레스 blog.png' && <p>스트레스 블로그 메인</p>}
+                  {modalImage === '/스트레스 blog list.png' && <p>스트레스 블로그 글 작성 기능</p>}
+                  {modalImage === '/스트레스 blog coments.png' && <p>스트레스 블로그 댓글 작성 기능</p>}
                 </>
               )}
               {item.projectName === '영양제 조절 사이트' && (
                 <>
-                  {modalImage === '/영양제 설계1.png' && <p></p>}
-                  {modalImage === '/영양제 설계2.png' && <p></p>}
-                  {modalImage === '/영양제 설계3.png' && <p></p>}
-                  {modalImage === '/영양제 설계4.png' && <p></p>}
-                  {modalImage === '/영양제.png' && <p></p>}
-                  {modalImage === '/영양제 프로필.png' && <p></p>}
-                  {modalImage === '/영양제 추가.png' && <p></p>}
-                  {modalImage === '/영양제 추가 2.png' && <p></p>}
-                  {modalImage === '/영양제 추가 3.png' && <p></p>}
-                  {modalImage === '/영양분 정보.png' && <p></p>}
-                  {modalImage === '/영양제 언어 설정.png' && <p></p>}
-                  {modalImage === '/영양제 언어 설정1.png' && <p></p>}
-                  {modalImage === '/영양제 언어 설정 2.png' && <p></p>}
-                  {modalImage === '/영양제 언어 설정 3.png' && <p></p>}
+                  {modalImage === '/영양제 설계1.png' && <p>작업 전 작업에 필요한 데이터 수집</p>}
+                  {modalImage === '/영양제 설계2.png' && <p>Figma를 사용하여 디자인 설계</p>}
+                  {modalImage === '/영양제 설계3.png' && <p>Figma를 사용하여 디자인 설계</p>}
+                  {modalImage === '/영양제 설계4.png' && <p>작업 중 뷰포트와 해상도는 다른 점을 알게되어 뷰포트 기준 정보 수집</p>}
+                  {modalImage === '/영양제.png' && <p>영양제 조절 사이트 메인</p>}
+                  {modalImage === '/영양제 프로필.png' && <p>영양제 조절 사이트 프로필 설정</p>}
+                  {modalImage === '/영양제 추가.png' && <p>현재 복용중인 영양제 설정</p>}
+                  {modalImage === '/영양제 추가 2.png' && <p>현재 복용중인 영양제의 양 설정</p>}
+                  {modalImage === '/영양제 추가 3.png' && <p>영양제가 추가된 화면(영양제의 기준을 그래프로 확인 가능)</p>}
+                  {modalImage === '/영양분 정보.png' && <p>영양제 정보 페이지(해당 영양제의 일일 기준치와 효능 확인 가능)</p>}
+                  {modalImage === '/영양제 언어 설정.png' && <p>영양제 조절 사이트 언어설정</p>}
+                  {modalImage === '/영양제 언어 설정1.png' && <p>영어로 언어 설정</p>}
+                  {modalImage === '/영양제 언어 설정 2.png' && <p>일본어로 언어 설정</p>}
+                  {modalImage === '/영양제 언어 설정 3.png' && <p>중국어로 언어 설정</p>}
                 </>
               )}
               {item.projectName === '여행 공유 사이트' && (
                 <>
-                  {modalImage === '/PlanT 고려사항.png' && <p></p>}
-                  {modalImage === '/PlanT 디자인설계1.png' && <p></p>}
-                  {modalImage === '/PlanT 디자인설계2.png' && <p></p>}
-                  {modalImage === '/PlanT 디자인설계3.png' && <p></p>}
-                  {modalImage === '/PlanT 모바일 설계1.png' && <p></p>}
-                  {modalImage === '/PlanT 모바일 설계2.png' && <p></p>}
-                  {modalImage === '/PlanT 프로젝트 구성1.png' && <p></p>}
-                  {modalImage === '/PlanT 프로젝트 구성2.png' && <p></p>}
-                  {modalImage === '/PlanT 프로젝트 구성3.png' && <p></p>}
-                  {modalImage === '/PlanT 문제해결.png' && <p></p>}
-                  {modalImage === '/PlanT MySQL1.png' && <p></p>}
-                  {modalImage === '/PlanT MySQL2.png' && <p></p>}
-                  {modalImage === '/PlanT main.png' && <p></p>}
-                  {modalImage === '/PlanT main2.png' && <p></p>}
-                  {modalImage === '/PlanT main3.png' && <p></p>}
-                  {modalImage === '/PlanT main4.png' && <p></p>}
-                  {modalImage === '/PlanT login.png' && <p></p>}
-                  {modalImage === '/PlanT login2.png' && <p></p>}
-                  {modalImage === '/PlanT login3.png' && <p></p>}
-                  {modalImage === '/PlanT login4.png' && <p></p>}
+                  {modalImage === '/PlanT 고려사항.png' && <p>작업 전 여행에 필요한 정보 수집</p>}
+                  {modalImage === '/PlanT 디자인설계1.png' && <p>Figma를 사용하여 pc 디자인 설계</p>}
+                  {modalImage === '/PlanT 디자인설계2.png' && <p>Figma를 사용하여 pc 디자인 설계</p>}
+                  {modalImage === '/PlanT 디자인설계3.png' && <p>Figma를 사용하여 pc 디자인 설계</p>}
+                  {modalImage === '/PlanT 모바일 설계1.png' && <p>Figma를 사용하여 모바일 디자인 설계</p>}
+                  {modalImage === '/PlanT 모바일 설계2.png' && <p>Figma를 사용하여 모바일 디자인 설계</p>}
+                  {modalImage === '/PlanT 프로젝트 구성1.png' && <p>프로젝트 구성 설계</p>}
+                  {modalImage === '/PlanT 프로젝트 구성2.png' && <p>프로젝트 기능 설계</p>}
+                  {modalImage === '/PlanT 프로젝트 구성3.png' && <p>프로젝트 기능 설계</p>}
+                  {modalImage === '/PlanT 문제해결.png' && <p>문제점 발생 시 문제와 해결방법 정리</p>}
+                  {modalImage === '/PlanT MySQL1.png' && <p>MySQL 사용전 사용방법 숙지</p>}
+                  {modalImage === '/PlanT MySQL2.png' && <p>MySQL 사용전 사용방법 숙지</p>}
+                  {modalImage === '/PlanT main.png' && <p>여행 공유 사이트 메인 페이지</p>}
+                  {modalImage === '/PlanT main2.png' && <p>여행 공유 사이트 기능 선택</p>}
+                  {modalImage === '/PlanT main3.png' && <p>기능을 추가하면 공유 계획 밑에 버튼을 생성하여 추후 기능이 많이 추가될 시 한번에 이동할 수 있는 기능 추가</p>}
+                  {modalImage === '/PlanT main4.png' && <p>합계 기능을 추가하여 소비자가 한눈에 볼 수 있도록 추가</p>}
+                  {modalImage === '/PlanT login.png' && <p>네이버 로그인 기능 구현</p>}
+                  {modalImage === '/PlanT login2.png' && <p>카카오 로그인 기능 구현</p>}
+                  {modalImage === '/PlanT login3.png' && <p>로그인시 로그인 중인지 확인하고 버튼을 로그아웃으로 변경하여 로그인 중인것을 인지하게 추가</p>}
+                  {modalImage === '/PlanT login4.png' && <p>기존 local storage에 토큰을 저장하였지만 쿠키에 저장하여 보안 문제 해결</p>}
                 </>
               )}
             </div>
