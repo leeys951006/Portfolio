@@ -120,13 +120,13 @@ const ItemComponent: React.FC<{ item: Item }> = ({ item }) => {
     if (item.projectName === 'ERP System') {
       window.open('https://kongukjae.notion.site/ERP-abc3f61cb1ce4a52859ab0f5c4aedec4?pvs=4', '_blank');
     } else if (item.projectName === '랜덤 포켓몬') {
-      window.open('https://kongukjae.notion.site/랜덤-포켓몬-abcdefg123456', '_blank'); // Notion 링크를 실제 링크로 교체하세요.
+      window.open('https://nifty-mountain-1e6.notion.site/24-05-11-24-05-13-5ec60ad525b14e139fff5f5ba9da24da?pvs=4', '_blank'); // Notion 링크를 실제 링크로 교체하세요.
     } else if (item.projectName === '스트레스 블로그') {
-      window.open('https://kongukjae.notion.site/스트레스-블로그-abcdefg123456', '_blank'); // Notion 링크를 실제 링크로 교체하세요.
+      window.open('https://nifty-mountain-1e6.notion.site/blog-24-05-24-24-07-07-192fa48e9c8c4b639f3b85e51022c73a?pvs=4', '_blank'); // Notion 링크를 실제 링크로 교체하세요.
     } else if (item.projectName === '영양제 조절 사이트') {
-      window.open('https://kongukjae.notion.site/영양제-조절-사이트-abcdefg123456', '_blank'); // Notion 링크를 실제 링크로 교체하세요.
+      window.open('https://nifty-mountain-1e6.notion.site/f11ef4686e184f92a7c75d82cd3b35e6?pvs=4', '_blank'); // Notion 링크를 실제 링크로 교체하세요.
     } else if (item.projectName === '여행 공유 사이트') {
-      window.open('https://kongukjae.notion.site/여행-공유-사이트-abcdefg123456', '_blank'); // Notion 링크를 실제 링크로 교체하세요.
+      window.open('https://nifty-mountain-1e6.notion.site/Plan-T-decd39d6377342d0abfd94398062880e?pvs=4', '_blank'); // Notion 링크를 실제 링크로 교체하세요.
     } else {
       console.log('Notion 링크 클릭됨');
     }
