@@ -53,6 +53,29 @@ const ItemComponent: React.FC<{ item: Item }> = ({ item }) => {
           '/영양제 언어 설정 2.png',
           '/영양제 언어 설정 3.png',
         ]
+      : item.projectName === '여행 공유 사이트'
+      ? [
+          '/PlanT 고려사항.png',
+          '/PlanT 디자인설계1.png',
+          '/PlanT 디자인설계2.png',
+          '/PlanT 디자인설계3.png',
+          '/PlanT 모바일 설계1.png',
+          '/PlanT 모바일 설계2.png',
+          '/PlanT 프로젝트 구성1.png',
+          '/PlanT 프로젝트 구성2.png',
+          '/PlanT 프로젝트 구성3.png',
+          '/PlanT 문제해결.png',
+          '/PlanT MySQL1.png',
+          '/PlanT MySQL2.png',
+          '/PlanT main.png',
+          '/PlanT main2.png',
+          '/PlanT main3.png',
+          '/PlanT main4.png',
+          '/PlanT login.png',
+          '/PlanT login2.png',
+          '/PlanT login3.png',
+          '/PlanT login4.png',
+        ]
       : [];
 
   const openModal = () => {
@@ -66,6 +89,9 @@ const ItemComponent: React.FC<{ item: Item }> = ({ item }) => {
       setModalImage(images[0]);
       setCurrentIndex(0);
     } else if (item.projectName === '영양제 조절 사이트') {
+      setModalImage(images[0]);
+      setCurrentIndex(0);
+    } else if (item.projectName === '여행 공유 사이트') {
       setModalImage(images[0]);
       setCurrentIndex(0);
     } else {
@@ -99,6 +125,8 @@ const ItemComponent: React.FC<{ item: Item }> = ({ item }) => {
       window.open('https://kongukjae.notion.site/스트레스-블로그-abcdefg123456', '_blank'); // Notion 링크를 실제 링크로 교체하세요.
     } else if (item.projectName === '영양제 조절 사이트') {
       window.open('https://kongukjae.notion.site/영양제-조절-사이트-abcdefg123456', '_blank'); // Notion 링크를 실제 링크로 교체하세요.
+    } else if (item.projectName === '여행 공유 사이트') {
+      window.open('https://kongukjae.notion.site/여행-공유-사이트-abcdefg123456', '_blank'); // Notion 링크를 실제 링크로 교체하세요.
     } else {
       console.log('Notion 링크 클릭됨');
     }
@@ -216,10 +244,38 @@ const ItemComponent: React.FC<{ item: Item }> = ({ item }) => {
                   {modalImage === '/영양제 언어 설정 3.png' && <p></p>}
                 </>
               )}
+              {item.projectName === '여행 공유 사이트' && (
+                <>
+                  {modalImage === '/PlanT 고려사항.png' && <p></p>}
+                  {modalImage === '/PlanT 디자인설계1.png' && <p></p>}
+                  {modalImage === '/PlanT 디자인설계2.png' && <p></p>}
+                  {modalImage === '/PlanT 디자인설계3.png' && <p></p>}
+                  {modalImage === '/PlanT 모바일 설계1.png' && <p></p>}
+                  {modalImage === '/PlanT 모바일 설계2.png' && <p></p>}
+                  {modalImage === '/PlanT 프로젝트 구성1.png' && <p></p>}
+                  {modalImage === '/PlanT 프로젝트 구성2.png' && <p></p>}
+                  {modalImage === '/PlanT 프로젝트 구성3.png' && <p></p>}
+                  {modalImage === '/PlanT 문제해결.png' && <p></p>}
+                  {modalImage === '/PlanT MySQL1.png' && <p></p>}
+                  {modalImage === '/PlanT MySQL2.png' && <p></p>}
+                  {modalImage === '/PlanT main.png' && <p></p>}
+                  {modalImage === '/PlanT main2.png' && <p></p>}
+                  {modalImage === '/PlanT main3.png' && <p></p>}
+                  {modalImage === '/PlanT main4.png' && <p></p>}
+                  {modalImage === '/PlanT login.png' && <p></p>}
+                  {modalImage === '/PlanT login2.png' && <p></p>}
+                  {modalImage === '/PlanT login3.png' && <p></p>}
+                  {modalImage === '/PlanT login4.png' && <p></p>}
+                </>
+              )}
             </div>
 
             {/* 썸네일 이미지들 */}
-            {item.projectName === 'ERP System' || item.projectName === '랜덤 포켓몬' || item.projectName === '스트레스 블로그' || item.projectName === '영양제 조절 사이트' ? (
+            {item.projectName === 'ERP System' ||
+            item.projectName === '랜덤 포켓몬' ||
+            item.projectName === '스트레스 블로그' ||
+            item.projectName === '영양제 조절 사이트' ||
+            item.projectName === '여행 공유 사이트' ? (
               <div className="flex overflow-x-auto mt-4 py-2 border-t border-gray-200">
                 {images.map((src, idx) => (
                   <div
