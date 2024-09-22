@@ -93,14 +93,7 @@ export default function Header() {
             >
               프로젝트
             </Link>
-            {/* 로그인 링크 추가 */}
-            <Link
-              href="/login"
-              onClick={toggleMenu}
-              className={`block px-4 py-2 font-semibold hover:text-gray-500 transition-colors duration-200 ${isBrightMode ? 'text-[#F7B033]' : 'text-[#333333]'}`}
-            >
-              로그인
-            </Link>
+           
           </nav>
         </div>
 
