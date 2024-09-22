@@ -27,7 +27,7 @@ export default function HomePage() {
       projectName: 'ERP System',
       duration: '24.07.15 - 24.08.14',
       languages: 'Tailwind CSS, TypeScript, Python',
-      frameworks: 'React, Next.js, Nest.js, Fast API, SQLite',
+      frameworks: 'Next.js, Nest.js, Fast API, SQLite',
     },
   ];
 

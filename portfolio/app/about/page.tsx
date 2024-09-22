@@ -126,7 +126,7 @@ export default function AboutPage() {
             ✖︎
           </button>
           <h2 className="text-2xl font-bold text-center mb-4" style={{ color: '#333333' }}>
-            New Section
+            작업 내역
           </h2>
 
           <Slider {...sliderSettings} className="w-full">
