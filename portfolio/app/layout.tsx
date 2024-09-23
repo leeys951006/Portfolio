@@ -4,8 +4,8 @@ import ClientProvider from './ClientProvider';
 import Header from './Header';
 
 export const metadata = {
-  title: 'My Travel Planning Website',
-  description: 'Travel planning made easy',
+  title: '이연승 Portfolio',
+  description: '이연승 Portfolio',
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
